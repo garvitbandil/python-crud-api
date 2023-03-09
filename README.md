@@ -1,5 +1,5 @@
 # python-crud-api
-##This project is a submission for Backend role at ProKhelo
+## This project is a submission for Backend role at ProKhelo
 
 This is a simple CRUD API built with Python and MySQL that allows users to log in, create their profile, edit their profile, and get all users from the API.
 
