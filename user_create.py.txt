@@ -1,0 +1,21 @@
+@app.route('/users', methods=['POST'])
+def create_user():
+    email = request.json['email']
+    password = request.json['password']
+    name = request.json['name']
+    age = request.json['age']
+    address = request.json['address']
+
+    cur = mysql.connection.cursor()
+    cur.execute('INSERT INTO users (email, password, name, age, address) VALUES (%s, %s, %s, %s, %s)', (email, password, name, age, address))
+    mysql.connection.commit()
+
+    user_data = {
+        'id': cur.lastrowid,
+        'email': email,
+        'name': name,
+        'age': age,
+        'address': address
+    }
+
+    return jsonify(user_data), 201
